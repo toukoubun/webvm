@@ -1,0 +1,18 @@
+FROM i386/alpine:latest
+
+# RUN apk add --no-cache bash shadow coreutils util-linux
+
+RUN adduser -D -s /bin/bash user
+RUN echo 'user:password' | chpasswd
+
+# 设置工作目录
+WORKDIR /home/user/
+
+# 设置环境变量
+ENV HOME="/home/user" \
+    TERM="xterm" \
+    USER="user" \
+    SHELL="/bin/bash"
+
+# 默认启动命令
+CMD [ "/bin/bash" ]
