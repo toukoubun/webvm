@@ -1,5 +1,6 @@
 FROM i386/alpine:latest
 
+RUN apk add --no-cache bash
 # RUN apk add --no-cache bash shadow coreutils util-linux
 
 RUN adduser -D -s /bin/bash user
